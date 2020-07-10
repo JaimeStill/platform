@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "PlatformAngularWorkspace",
+  "title": "Platform Workspace Options Schema",
+  "type": "object",
+  "properties": {
+    "clientRoot": {
+      "description": "The path where new projects will be created.",
+      "type": "string",
+      "default": "client"
+    },
+    "name": {
+      "description": "The name of the workspace.",
+      "type": "string",
+      "format": "html-selector",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the name of this workspace?"
+    },
+    "packageManager": {
+      "description": "The package manager used to install dependencies.",
+      "type": "string",
+      "enum": ["npm", "yarn", "pnpm", "cnpm"],
+      "default": "yarn"
+    },
+    "server": {
+      "description": "The name of the platform server solution.",
+      "type": "string",
+      "x-prompt": "What is the name of the platform server solution?"
+    },
+    "serverRoot": {
+      "description": "The path where the platform server is hosted.",
+      "type": "string",
+      "default": "server"
+    },
+    "skipInstall": {
+      "description": "Whether to skip node dependency installation.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "name",
+    "server"
+  ]
+}

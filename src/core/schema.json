@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "PlatformCoreLibrary",
+  "title": "Platform Core Library Schema",
+  "type": "object",
+  "description": "Generates a new core library in the \"client\" subfolder of the workspace.",
+  "properties": {
+    "projectRoot": {
+      "description": "The root directory of the new library.",
+      "type": "string",
+      "visible": false
+    },
+    "api": {
+      "description": "The api endpoint on the platform server.",
+      "type": "string",
+      "default": "api"
+    },
+    "serverPort": {
+      "description": "The debugging port for the platform server.",
+      "type": "number",
+      "default": 5000
+    },
+    "skipInstall": {
+      "description": "Whether or not to install node packages.",
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

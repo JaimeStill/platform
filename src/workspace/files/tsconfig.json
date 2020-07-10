@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "plugins": [
+      { "name": "@angular/language-service" }
+    ]
+  },
+  "files": [],
+  "references": []
+}

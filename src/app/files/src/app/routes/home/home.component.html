@@ -1,0 +1,9 @@
+<mat-toolbar>
+  <span fxFlex><%= classify(name) %></span>
+  <button mat-icon-button
+          (click)="themer.toggleTheme()">
+    <mat-icon [color]="themer.isLight ? 'accent' : 'default'">
+      {{themer.isLight ? 'brightness_5' : 'brightness_3'}}
+    </mat-icon>
+  </button>
+</mat-toolbar>

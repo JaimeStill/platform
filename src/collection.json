@@ -1,0 +1,38 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-new": {
+      "description": "A blank schematic.",
+      "factory": "./ng-new/index#ngNew",
+      "hidden": true
+    },
+    "workspace": {
+      "description": "A new Platform workspace.",
+      "factory": "./workspace",
+      "schema": "./workspace/schema.json",
+      "hidden": true
+    },
+    "app": {
+      "aliases": ["application"],
+      "description": "A new Angular application.",
+      "factory": "./app",
+      "schema": "./app/schema.json"
+    },
+    "lib": {
+      "aliases": ["library"],
+      "description": "A new Angular library.",
+      "factory": "./lib",
+      "schema": "./lib/schema.json"
+    },
+    "platform": {
+      "aliases": ["plat"],
+      "description": "A blank schematic.",
+      "factory": "./platform/index#platform"
+    },
+    "core": {
+      "description": "A new Core library.",
+      "factory": "./core",
+      "schema": "./core/schema.json"
+    }
+  }
+}

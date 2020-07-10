@@ -1,0 +1,24 @@
+{
+  "name": "platform",
+  "version": "0.0.0",
+  "description": "A blank schematics",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^10.0.1",
+    "@angular-devkit/schematics": "^10.0.1",
+    "typescript": "~3.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.1",
+    "jsonc-parser": "^2.3.0"
+  }
+}
