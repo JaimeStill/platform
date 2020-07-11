@@ -199,10 +199,7 @@ export default function (options: Schema): Rule {
 
     const workspace = await getWorkspace(host);
     const newProjectRoot = workspace.extensions.newProjectRoot as (string | undefined) || '';
-    const isRootApp = options.projectRoot !== undefined;
-    const appDir = isRootApp
-      ? normalize(options.projectRoot || '')
-      : join(normalize(newProjectRoot), options.name);
+    const appDir = join(normalize(newProjectRoot), options.name);
 
     return chain([
       addAppToWorkspaceFile(options, appDir),
@@ -212,8 +209,7 @@ export default function (options: Schema): Rule {
             ...strings,
             ...options,
             relativePathToWorkspaceRoot: relativePathToWorkspaceRoot(appDir),
-            appName: options.name,
-            isRootApp
+            appName: options.name
           }),
           move(appDir)
         ]), MergeStrategy.Overwrite

@@ -6,6 +6,7 @@ import {
   chain,
   mergeWith,
   move,
+  noop,
   template,
   url
 } from '@angular-devkit/schematics';
@@ -31,7 +32,11 @@ export default function (options: Schema): Rule {
       ...strings,
       ...options
     }),
-    move(options.name)
+    options.skipDirectory
+      ? noop
+      : options.directory
+        ? move(options.directory)
+        : move(options.name)
   ]);
 
   return chain([

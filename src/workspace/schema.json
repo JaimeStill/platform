@@ -9,6 +9,10 @@
       "type": "string",
       "default": "client"
     },
+    "directory": {
+      "description": "The root directory of the workspace.",
+      "type": "string"
+    },
     "name": {
       "description": "The name of the workspace.",
       "type": "string",
@@ -34,6 +38,11 @@
       "description": "The path where the platform server is hosted.",
       "type": "string",
       "default": "server"
+    },
+    "skipDirectory": {
+      "description": "Whether to move the workspace into a directory. Uses name if the directory schema property is not specified.",
+      "type": "boolean",
+      "default": false
     },
     "skipInstall": {
       "description": "Whether to skip node dependency installation.",

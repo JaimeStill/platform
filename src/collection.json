@@ -1,11 +1,6 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "ng-new": {
-      "description": "A blank schematic.",
-      "factory": "./ng-new/index#ngNew",
-      "hidden": true
-    },
     "workspace": {
       "description": "A new Platform workspace.",
       "factory": "./workspace",
@@ -26,8 +21,9 @@
     },
     "platform": {
       "aliases": ["plat"],
-      "description": "A blank schematic.",
-      "factory": "./platform/index#platform"
+      "description": "Initialize a new Platform workspace.",
+      "factory": "./platform",
+      "schema": "./platform/schema.json"
     },
     "core": {
       "description": "A new Core library.",
