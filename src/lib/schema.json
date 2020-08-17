@@ -10,11 +10,6 @@
       "type": "string",
       "visible": false
     },
-    "api": {
-      "description": "The api endpoint on the platform server.",
-      "type": "string",
-      "default": "api"
-    },
     "name": {
       "description": "The name of the new library.",
       "type": "string",
@@ -23,11 +18,6 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use for the library?"
-    },
-    "serverPort": {
-      "description": "The debugging port for the platform server.",
-      "type": "number",
-      "default": 5000
     },
     "skipInstall": {
       "description": "Whether or not to install node packages.",

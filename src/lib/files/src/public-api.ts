@@ -1,1 +1,1 @@
-export * from './lib/config/<%= dasherize(name) %>.config';
+export * from './lib/<%= dasherize(name) %>.module';

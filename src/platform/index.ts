@@ -20,6 +20,7 @@ import {
 
 import { Schema as ApplicationOptions } from '../app/schema';
 import { Schema as CoreOptions } from '../core/schema';
+import { Schema as ApiOptions } from '../lib/schema';
 import { validateProjectName } from '../utility/validation';
 import { Schema as WorkspaceOptions } from '../workspace/schema';
 import { Schema as PlatformOptions } from './schema';
@@ -53,6 +54,12 @@ export default function(options: PlatformOptions): Rule {
     skipInstall: options.skipInstall
   };
 
+  const apiOptions: ApiOptions = {
+    projectRoot: '',
+    name: 'api',
+    skipInstall: options.skipInstall
+  }
+
   const applicationOptions: ApplicationOptions = {
     projectRoot: '',
     api: options.api,
@@ -68,6 +75,7 @@ export default function(options: PlatformOptions): Rule {
       apply(empty(), [
         schematic('workspace', workspaceOptions),
         schematic('core', coreOptions),
+        schematic('lib', apiOptions),
         options.skipApp ? noop : schematic('app', applicationOptions),
         options.directory ? move(options.directory) : noop,
       ])

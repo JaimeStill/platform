@@ -11,12 +11,12 @@ import {
 } from '@microsoft/signalr';
 
 import { SnackerService } from './snacker.service';
-import { CoreConfig } from '../config';
+import { ServerConfig } from '../config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SyncSocketService {
+export class SyncSocket {
   private endpoint = 'http://localhost:<%= serverPort %>/sync';
   private connection: HubConnection;
 
@@ -28,7 +28,7 @@ export class SyncSocketService {
 
   constructor(
     private snacker: SnackerService,
-    @Optional() config?: CoreConfig
+    @Optional() config?: ServerConfig
   ) {
     if (config) { this.endpoint = `${config.server}sync`; }
 

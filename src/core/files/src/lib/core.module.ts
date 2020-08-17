@@ -4,6 +4,8 @@ import {
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material.module';
 
@@ -11,7 +13,7 @@ import { Dialogs } from './dialogs';
 import { Directives } from './directives';
 import { Pipes } from './pipes';
 
-import { CoreConfig } from './config';
+import { ServerConfig } from './config';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,13 @@ import { CoreConfig } from './config';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    HttpClientModule,
     MaterialModule
   ],
   exports: [
+    HttpClientModule,
+    FormsModule,
     MaterialModule,
     ...Dialogs,
     ...Directives,
@@ -34,11 +40,11 @@ import { CoreConfig } from './config';
   ]
 })
 export class CoreModule {
-  static forRoot(config: CoreConfig): ModuleWithProviders<CoreModule> {
+  static forRoot(config: ServerConfig): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
       providers: [
-        { provide: CoreConfig, useValue: config }
+        { provide: ServerConfig, useValue: config }
       ]
     };
   }

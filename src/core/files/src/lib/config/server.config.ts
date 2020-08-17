@@ -1,4 +1,4 @@
-export class CoreConfig {
+export class ServerConfig {
   server = 'http://localhost:<%= serverPort %>/';
   api = 'http://localhost:<%= serverPort %>/<%= api %>/';
 }
