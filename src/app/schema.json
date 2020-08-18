@@ -27,7 +27,7 @@
     "port": {
       "description": "The port to serve the app under.",
       "type": "number",
-      "default": 4200
+      "default": 3000
     },
     "prefix": {
       "type": "string",

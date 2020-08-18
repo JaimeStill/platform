@@ -20,7 +20,9 @@ import {
 
 import { Schema as ApplicationOptions } from '../app/schema';
 import { Schema as CoreOptions } from '../core/schema';
+import { Schema as DocsOptions } from '../docs/schema';
 import { Schema as ApiOptions } from '../lib/schema';
+import { Schema as ServerOptions } from '../server/schema';
 import { validateProjectName } from '../utility/validation';
 import { Schema as WorkspaceOptions } from '../workspace/schema';
 import { Schema as PlatformOptions } from './schema';
@@ -47,6 +49,12 @@ export default function(options: PlatformOptions): Rule {
     skipInstall: options.skipInstall
   };
 
+  const serverOptions: ServerOptions = {
+    name: options.serverName,
+    directory: options.serverRoot,
+    port: options.serverPort
+  };
+
   const coreOptions: CoreOptions = {
     projectRoot: '',
     api: options.api,
@@ -58,7 +66,7 @@ export default function(options: PlatformOptions): Rule {
     projectRoot: '',
     name: 'api',
     skipInstall: options.skipInstall
-  }
+  };
 
   const applicationOptions: ApplicationOptions = {
     projectRoot: '',
@@ -70,12 +78,23 @@ export default function(options: PlatformOptions): Rule {
     skipInstall: options.skipInstall
   };
 
+  const docsOptions: DocsOptions = {
+    projectRoot: '',
+    api: options.api,
+    name: 'docs',
+    port: 4000,
+    serverPort: 5000,
+    skipInstall: options.skipInstall
+  };
+
   return chain([
     mergeWith(
       apply(empty(), [
         schematic('workspace', workspaceOptions),
+        schematic('server', serverOptions),
         schematic('core', coreOptions),
         schematic('lib', apiOptions),
+        schematic('docs', docsOptions),
         options.skipApp ? noop : schematic('app', applicationOptions),
         options.directory ? move(options.directory) : noop,
       ])

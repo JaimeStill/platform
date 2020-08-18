@@ -13,6 +13,12 @@
       "factory": "./app",
       "schema": "./app/schema.json"
     },
+    "docs": {
+      "aliases": ["documentation", "doc"],
+      "description": "A new Angular documentation application",
+      "factory": "./docs",
+      "schema": "./docs/schema.json"
+    },
     "lib": {
       "aliases": ["library"],
       "description": "A new Angular library.",
@@ -29,6 +35,11 @@
       "description": "A new Core library.",
       "factory": "./core",
       "schema": "./core/schema.json"
+    },
+    "server": {
+      "description": "A new .NET Web Server",
+      "factory": "./server",
+      "schema": "./server/schema.json"
     }
   }
 }

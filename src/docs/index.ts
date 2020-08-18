@@ -58,6 +58,7 @@ function updatePackageJson(options: Schema) {
 
 function addAppToWorkspaceFile(options: Schema, appDir: string): Rule {
   let projectRoot = appDir;
+
   if (projectRoot) {
     projectRoot += '/';
   }
@@ -98,7 +99,7 @@ function addAppToWorkspaceFile(options: Schema, appDir: string): Rule {
     root: normalize(projectRoot),
     sourceRoot,
     projectType: ProjectType.Application,
-    prefix: options.prefix || 'app',
+    prefix: 'app',
     schematics,
     targets: {
       build: {
