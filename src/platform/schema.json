@@ -16,7 +16,7 @@
     "appPort": {
       "description": "The port to serve the generated app under.",
       "type": "number",
-      "default": 4200
+      "default": 3000
     },
     "clientRoot": {
       "description": "The path where new projects will be created.",
