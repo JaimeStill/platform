@@ -149,7 +149,6 @@ export default function (options: Schema): Rule {
     const folderName = `${projectName}/`;
     const projectRoot = join(normalize(newProjectRoot), folderName);
     const distRoot = `dist/${folderName}`;
-    const pathImportLib = `${distRoot}/${folderName.replace('/', '-')}`;
 
     const templateSource = apply(url('./files'), [
       template({
@@ -166,7 +165,7 @@ export default function (options: Schema): Rule {
       addTsConfigProjectReferences([
         `${projectRoot}/tsconfig.lib.json`
       ]),
-      updateTsConfig(projectName, pathImportLib, distRoot),
+      updateTsConfig(projectName, distRoot),
       updatePackageJson(options)
     ])
   }
