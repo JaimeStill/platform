@@ -166,7 +166,7 @@ function addAppToWorkspaceFile(options: Schema, appDir: string): Rule {
         builder: Builders.TsLint,
         options: {
           tsConfig: [
-            `${projectRoot}/tsconfig.app.json`
+            `${projectRoot}tsconfig.app.json`
           ],
           exclude: [
             '**/node_modules/**'
