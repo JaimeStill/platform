@@ -19,9 +19,7 @@ import {
 } from '@angular-devkit/schematics/tasks';
 
 import { Schema as ApplicationOptions } from '../app/schema';
-import { Schema as CoreOptions } from '../core/schema';
 import { Schema as DocsOptions } from '../docs/schema';
-import { Schema as ApiOptions } from '../lib/schema';
 import { Schema as ServerOptions } from '../server/schema';
 import { validateProjectName } from '../utility/validation';
 import { Schema as WorkspaceOptions } from '../workspace/schema';
@@ -39,11 +37,14 @@ export default function(options: PlatformOptions): Rule {
   }
 
   const workspaceOptions: WorkspaceOptions = {
+    api: options.api,
     name: options.name,
     directory: undefined,
     clientRoot: options.clientRoot,
+    library: options.library,
     packageManager: options.packageManager,
     server: options.serverName,
+    serverPort: options.serverPort,
     serverRoot: options.serverRoot,
     skipDirectory: true,
     skipInstall: options.skipInstall
@@ -55,22 +56,10 @@ export default function(options: PlatformOptions): Rule {
     port: options.serverPort
   };
 
-  const coreOptions: CoreOptions = {
-    projectRoot: '',
-    api: options.api,
-    serverPort: options.serverPort,
-    skipInstall: options.skipInstall
-  };
-
-  const apiOptions: ApiOptions = {
-    projectRoot: '',
-    name: 'api',
-    skipInstall: options.skipInstall
-  };
-
   const applicationOptions: ApplicationOptions = {
     projectRoot: '',
     api: options.api,
+    library: options.library,
     name: options.appName ? options.appName : options.name,
     port: options.appPort,
     prefix: options.prefix,
@@ -81,6 +70,7 @@ export default function(options: PlatformOptions): Rule {
   const docsOptions: DocsOptions = {
     projectRoot: '',
     api: options.api,
+    library: options.library,
     name: 'docs',
     port: 4000,
     serverPort: 5000,
@@ -92,8 +82,6 @@ export default function(options: PlatformOptions): Rule {
       apply(empty(), [
         schematic('workspace', workspaceOptions),
         schematic('server', serverOptions),
-        schematic('core', coreOptions),
-        schematic('lib', apiOptions),
         schematic('docs', docsOptions),
         options.skipApp ? noop : schematic('app', applicationOptions),
         options.directory ? move(options.directory) : noop,

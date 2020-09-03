@@ -22,7 +22,7 @@ import { Subscription } from 'rxjs';
 import {
   MarkedService,
   ThemeService
-} from 'core';
+} from '<%= dasherize(library) %>';
 
 import {
   Document,

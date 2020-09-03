@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
+    "build": "ng build <%= dasherize(library) %>",
     "start:server": "dotnet run --project ./<%= dasherize(serverRoot) %>/<%= classify(server) %>.Web",
-    "build": "ng build",
-    "lint": "ng lint"
+    "watch": "ng build <%= dasherize(library) %> --watch"
   },
   "dependencies": {
     "@angular/animations": "^10.0.9",

@@ -4,6 +4,9 @@
       { "name": "@angular/language-service" }
     ]
   },
-  "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./<%= dasherize(clientRoot) %>/<%= dasherize(library) %>/tsconfig.lib.json"
+    }
+  ]
 }

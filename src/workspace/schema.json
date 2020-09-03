@@ -4,6 +4,11 @@
   "title": "Platform Workspace Options Schema",
   "type": "object",
   "properties": {
+    "api": {
+      "description": "The api endpoint on the platform server.",
+      "type": "string",
+      "default": "api"
+    },
     "clientRoot": {
       "description": "The path where new projects will be created.",
       "type": "string",
@@ -12,6 +17,11 @@
     "directory": {
       "description": "The root directory of the workspace.",
       "type": "string"
+    },
+    "library": {
+      "description": "The name of the workspace library",
+      "type": "string",
+      "default": "core"
     },
     "name": {
       "description": "The name of the workspace.",
@@ -33,6 +43,11 @@
       "description": "The name of the platform server solution.",
       "type": "string",
       "x-prompt": "What is the name of the platform server solution?"
+    },
+    "serverPort": {
+      "description": "The debugging port for the platform server.",
+      "type": "number",
+      "default": 5000
     },
     "serverRoot": {
       "description": "The path where the platform server is hosted.",

@@ -50,6 +50,11 @@
       "description": "The directory name to create the workspace in",
       "type": "string"
     },
+    "library": {
+      "description": "The name of the workspace library",
+      "type": "string",
+      "default": "core"
+    },
     "linkCli": {
       "description": "When true, links the CLI to the global version (internal development only).",
       "type": "boolean",

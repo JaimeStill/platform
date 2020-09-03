@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
-import { ApiModule } from 'api';
-import { CoreModule } from 'core';
+import {
+  <%= classify(library) %>Module,
+  MaterialModule
+} from '<%= dasherize(library) %>';
 
 import { AppComponent } from './app.component';
 
@@ -23,8 +25,8 @@ import {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    CoreModule.forRoot({ server: environment.server, api: environment.api }),
-    ApiModule,
+    MaterialModule,
+    <%= classify(library) %>Module.forRoot({ server: environment.server, api: environment.api }),
     RouterModule.forRoot(Routes)
   ],
   providers: [],

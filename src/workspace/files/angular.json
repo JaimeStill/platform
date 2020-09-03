@@ -5,5 +5,37 @@
     "packageManager": "<%= packageManager %>"
   },
   "newProjectRoot": "<%= clientRoot %>",
-  "projects": {}
+  "projects": {
+    "<%= dasherize(library) %>": {
+      "projectType": "library",
+      "root": "<%= dasherize(clientRoot) %>/<%= dasherize(library) %>",
+      "sourceRoot": "<%= dasherize(clientRoot) %>/<%= dasherize(library) %>",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "<%= dasherize(clientRoot) %>/<%= dasherize(library) %>/tsconfig.lib.json",
+            "project": "<%= dasherize(clientRoot) %>/<%= dasherize(library) %>/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "<%= dasherize(clientRoot) %>/<%= dasherize(library) %>/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "<%= dasherize(clientRoot) %>/<%= dasherize(library) %>/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  }
 }

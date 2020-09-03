@@ -11,6 +11,7 @@ export interface Schema {
   clientRoot: string;
   commit: GitCommit | boolean;
   directory: string;
+  library: string;
   linkCli: boolean;
   name: string;
   packageManager: string;

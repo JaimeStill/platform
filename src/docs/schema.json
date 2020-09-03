@@ -15,6 +15,11 @@
       "type": "string",
       "default": "api"
     },
+    "library": {
+      "description": "The name of the workspace library.",
+      "type": "string",
+      "default": "core"
+    },
     "name": {
       "description": "The name of the documentation app.",
       "type": "string",

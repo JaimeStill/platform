@@ -15,7 +15,9 @@ import 'prismjs/components/prism-csharp';
 
 import { ServerConfig } from '../config';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MarkedService {
   private renderer = new marked.Renderer();
   private parser = marked;

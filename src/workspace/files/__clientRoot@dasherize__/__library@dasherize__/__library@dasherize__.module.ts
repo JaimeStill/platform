@@ -7,21 +7,31 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MaterialModule } from './material.module';
+import {
+  ApiComponents,
+  ApiDialogs,
+  ApiDirectives,
+  ApiPipes
+} from './api';
 
+import { MaterialModule } from './material.module';
+import { ServerConfig } from './config';
 import { Dialogs } from './dialogs';
 import { Directives } from './directives';
 import { Pipes } from './pipes';
 
-import { ServerConfig } from './config';
-
 @NgModule({
   declarations: [
+    ...ApiComponents,
+    ...ApiDialogs,
+    ...ApiDirectives,
+    ...ApiPipes,
     ...Dialogs,
     ...Directives,
     ...Pipes
   ],
   entryComponents: [
+    ...ApiDialogs,
     ...Dialogs
   ],
   imports: [
@@ -31,18 +41,16 @@ import { ServerConfig } from './config';
     MaterialModule
   ],
   exports: [
-    HttpClientModule,
-    FormsModule,
     MaterialModule,
     ...Dialogs,
     ...Directives,
     ...Pipes
   ]
 })
-export class CoreModule {
-  static forRoot(config: ServerConfig): ModuleWithProviders<CoreModule> {
+export class <%= classify(library) %>Module {
+  static forRoot(config: ServerConfig): ModuleWithProviders<<%= classify(library) %>Module> {
     return {
-      ngModule: CoreModule,
+      ngModule: <%= classify(library) %>Module,
       providers: [
         { provide: ServerConfig, useValue: config }
       ]

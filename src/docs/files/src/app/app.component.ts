@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemeService } from 'core';
+import { ThemeService } from '<%= dasherize(library) %>';
 
 @Component({
   selector: 'app-root',

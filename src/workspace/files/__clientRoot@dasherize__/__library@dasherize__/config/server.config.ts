@@ -1,4 +1,4 @@
 export class ServerConfig {
   server = 'http://localhost:<%= serverPort %>/';
-  api = 'http://localhost:<%= serverPort %>/<%= api %>/';
+  api = 'http://localhost:<%= serverPort %>/<%= dasherize(api) %>/';
 }

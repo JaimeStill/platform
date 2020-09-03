@@ -1,7 +1,7 @@
 {
-  "extends": "<%= relativePathToWorkspaceRoot %>/tsconfig.base.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "<%= relativePathToWorkspaceRoot %>/out-tsc/app",
+    "outDir": "../../out-tsc/app",
     "target": "es2015",
     "declaration": true,
     "inlineSources": true,
@@ -15,9 +15,5 @@
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "enableResourceInlining": true
-  },
-  "exclude": [
-    "src/test.ts",
-    "**/*.spec.ts"
-  ]
+  }
 }
