@@ -24,11 +24,6 @@ import {
 } from '@angular-devkit/schematics/tasks';
 
 import {
-  addTsConfigProjectReferences,
-  verifyBaseTsConfigExists
-} from '../utility/ts-config';
-
-import {
   getWorkspace,
   updateWorkspace
 } from '../utility/workspace';
@@ -195,7 +190,6 @@ export default function (options: Schema): Rule {
     }
 
     validateProjectName(options.name);
-    verifyBaseTsConfigExists(host);
 
     const workspace = await getWorkspace(host);
     const newProjectRoot = workspace.extensions.newProjectRoot as (string | undefined) || '';
@@ -214,9 +208,6 @@ export default function (options: Schema): Rule {
           move(appDir)
         ]), MergeStrategy.Overwrite
       ),
-      addTsConfigProjectReferences([
-        join(appDir, 'tsconfig.app.json')
-      ]),
       updatePackageJson(options)
     ]);
   };

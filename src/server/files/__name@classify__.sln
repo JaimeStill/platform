@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Web", "<%= classify(name) %>.Web\<%= classify(name) %>.Web.csproj", "{43F3774B-CF32-42C0-9264-8AC7977DB1EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Core", "<%= classify(name) %>.Core\<%= classify(name) %>.Core.csproj", "{B24213C5-E6DA-4E3B-8C18-C6E3DB5BB268}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Data", "<%= classify(name) %>.Data\<%= classify(name) %>.Data.csproj", "{A792660F-7280-48E2-AC07-385F9D485C11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Core", "<%= classify(name) %>.Core\<%= classify(name) %>.Core.csproj", "{B24213C5-E6DA-4E3B-8C18-C6E3DB5BB268}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Web", "<%= classify(name) %>.Web\<%= classify(name) %>.Web.csproj", "{43F3774B-CF32-42C0-9264-8AC7977DB1EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbseeder", "dbseeder\dbseeder.csproj", "{00799651-6DDD-4C93-BD56-D16CDA49BC02}"
 EndProject
