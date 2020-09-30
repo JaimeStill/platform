@@ -1,45 +1,107 @@
 # Platform Schematics
 
-## Globally install schematics CLI
+* [Setup](#setup)
+    * [Required App Installations](#required-app-installations)
+    * [Globally Install Tools](#globally-install-tools)
+* [Getting Started](#getting-started)
+    * [Initialize a Project](#initialize-a-project)
+    * [Add an App to the Workspace](#add-an-app-to-the-workspace)
+
+## Setup
+[Back to Top](#platform-schematics)
+
+### Required App Installations
+[Back to Top](#platform-schematics)
+
+* [Node.JS - Current](https://nodejs.org/dist/v14.13.0/node-v14.13.0-x64.msi)
+    * No need to install additional tools via Chocolatey.
+* [Git](https://git-scm.com/download/win)
+* [Yarn](https://classic.yarnpkg.com/latest.msi)
+* [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.402-windows-x64-installer)
+* [SQL Server 2019 Express](https://go.microsoft.com/fwlink/?linkid=866658)
+    * Run the custom setup and install a new instance.
+    * When installing features, you can uncheck the box that installs Machine Learning features.
+    * During setup, name your instance `DevSql`.
+* [VS Code](https://code.visualstudio.com/docs/?dv=win64user)
+* [Azure Data Studio](https://go.microsoft.com/fwlink/?linkid=2142210)
+
+### Globally Install Tools
+[Back to Top](#platform-schematics)
 
 ```bash
-yarn global add @angular-devkit/schematics-cli
+yarn global add @angular-devkit/schematics-cli @angular/cli
+
+dotnet tool install --global dotnet-ef 
 ```
 
-## Create a Schematic
+> To update the `dotnet-ef tool`, run `dotnet tool update --global dotnet-ef`.
+
+## Getting Started
+[Back to Top](#platform-schematics)
+
+### Initialize a Project
+[Back to Top](#platform-schematics)
+
+1. Clone this repository to your local environment with `git clone https://github.com/JaimeStill/platform`
+
+2. Open a PowerShell terminal at the location where this repository is cloned.
+
+3. Run the following to initialize a project using the app platform:
 
 ```bash
-schematics blank --name={name}
-```
-
-## Build Schematic
-
-```bash
-cd {name}
+# install dependencies
 yarn install
+
+# build the schematics
 yarn build
-```
 
-## Run a Schematic
-
-```bash
-# if located in workspace root
-schematics .:{schematics-name} --{required-option}={value}
+# initialize a project
+schematics .:platform {name} --serverName={serverName} --debug=false
 
 # example
-schematics .:app
-
-# if not located in workspace root
-schematics {relative-path-to-collection.json}:{schematics-name}
-
-# example
-schematics G:\code\schematics\platform\src\collection.json:app
+schematics .:platform demo --serverName=Demo --debug=false
 ```
 
-## Add Schematic to a Collection
+> For a list of all of the available options, see [src/platform/schema.json](./src/platform/schema.json).
+
+Once the project is initialized, you will need to do the following:
+
+1. Change directory into the folder created for your project.
+
+2. Run `yarn install` to install dependencies.
+
+3. Run `yarn build` to build the `core` library.
+
+You can find all of the available scripts in the `package.json` of the workspace. The following is a description of the available scripts:
+
+Script | Executes | Description
+-------|----------|------------
+`yarn build` | `ng build core` | Build the `core` library used by the Angular apps
+`yarn start:server` | `dotnet run --project ./server/{Project}.Web` | Starts the .NET Core server for the workspace
+`yarn start:docs` | `ng serve docs` | Starts the Angular documentation project built into the workspace
+`yarn start:{app}` | `ng serve {app}` | Starts the specified Angular application
+`yarn watch` | `ng build core --watch` | Builds the `core` library and watches for changes. This enables hot reloading for the library when modifications are made during development.
+
+> To add content to the `docs` project, add **Markdown** files to the `/server/{Project}.Web/wwwroot` directory in any folder structure you prefer.
+
+### Add an App to the Workspace
+[Back to Top](#platform-schematics)
+
+1. From the root of the project workspace (where the `angular.json` file is located), open a PowerShell terminal.
+
+2. Run the following command:
 
 ```bash
-cd {schematic-project-root}
+ng g {relative path to platform/src}:collection.json {name} --port={port}
 
-schematics blank --name={new-schematic-name}
+# example
+ng g ../../../platform/src:collection.json items --port=3001
 ```
+
+> For a list of all of the available options, see [src/app/schema.json](./src/app/schema.json)
+
+This will create a new folder with the name provided in the `./client` directory of your workspace.
+
+After the app is added to the workspace, you need to add the debug URL to the `CorsOrigins` array specified in the `./server/{Project}.Web/appsettings.Development.json` file. See [appsettings.Development.json](./src/server/files/__name@classify__.Web/appsettings.Development.json).
+
+You can run the newly added app by executing `yarn start:{name}`. For example, `yarn start:items`.
