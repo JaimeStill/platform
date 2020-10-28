@@ -1,4 +1,4 @@
-<section class="mat-typography mat-app-background app-container"
+<section class="mat-typography mat-app-background app-frame"
          [ngClass]="themer.isLight ? 'app-light' : 'app-dark'">
   <mat-toolbar class="app-toolbar"
                color="primary">
@@ -10,5 +10,7 @@
       </mat-icon>
     </button>
   </mat-toolbar>
-  <router-outlet></router-outlet>
+  <section class="app-container">
+    <router-outlet></router-outlet>
+  </section>
 </section>

@@ -14,6 +14,7 @@
   $background: mat-color($b, background);
   $background-card: mat-color($b, card);
   $foreground: mat-color($f, text);
+  $divider: mat-color($f, divider);
   $app-bar: mat-color($b, app-bar);
 
   $primary-contrast: mat-color($p, default-contrast);
@@ -52,6 +53,26 @@
     color: $background;
   }
 
+  .card-outline {
+    border: 1px solid $foreground;
+  }
+
+  .card-outline-divider {
+    border: 1px solid $divider;
+  }
+
+  .card-outline-primary {
+    border: 1px solid $primary;
+  }
+
+  .card-outline-accent {
+    border: 1px solid $accent;
+  }
+
+  .card-outline-warn {
+    border: 1px solid $warn;
+  }
+
   .color.primary {
     color: $primary;
   }
@@ -77,9 +98,25 @@
   a:visited {
     color: $warn;
   }
+
+  a.mat-list-item,
+  a.mat-tab-link,
+  a.mat-list-item:visited,
+  a.mat-tab-link:visited {
+    color: $foreground;
+  }
+
+  a.mat-list-item.active,
+  a.mat-tab-link.active {
+    color: $primary;
+  }
+
+  mat-paginator.mat-paginator {
+    background-color: $background;
+  }
 }
 
-html, body, app-root {
+html, body, app-root, .app-frame {
   overflow: hidden;
   margin: 0;
   height: 100%;
@@ -87,7 +124,77 @@ html, body, app-root {
 
 .app-container {
   overflow: auto;
-  height: 100%;
+  height: calc(100% - 64px);
+  box-sizing: border-box;
+}
+
+.background.card {
+  margin: 4px;
+}
+
+.container {
+  padding: 8px;
+}
+
+mat-toolbar.mat-toolbar.app-toolbar {
+  padding: 0 8px;
+
+  button.mat-icon-button,
+  mat-form-field.mat-form-field {
+    margin: 0 8px 0 0;
+  }
+
+  button.mat-stroked-button {
+    margin: 0 4px;
+  }
+
+  button.mat-stroked-button:first-child {
+    margin-left: 8px;
+  }
+}
+
+nav.mat-tab-nav-bar.wrapped div.mat-tab-links {
+  flex-wrap: wrap;
+}
+
+nav.mat-tab-nav-bar.scrolled {
+  white-space: nowrap;
+  overflow: auto;
+
+  div.mat-tab-links {
+    display: block;
+  }
+}
+
+a.mat-tab-link,
+mat-tab.mat-tab {
+  min-width: 80px;
+}
+
+mat-tab-group.mat-tab-group.flexible div.mat-tab-labels {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-items: space-evenly;
+
+  div.mat-tab-label {
+    flex-grow: 1;
+    flex-basis: auto;
+    min-width: 0;
+  }
+}
+
+nav.mat-tab-nav-bar.flexible div.mat-tab-links {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-items: space-evenly;
+
+  a.mat-tab-link {
+    flex-grow: 1;
+    flex-basis: auto;
+    min-width: 0;
+  }
 }
 
 .el2 {
@@ -125,4 +232,10 @@ html, body, app-root {
 
 .backdropped {
   transition: backdrop-filter 100ms ease-in;
+}
+
+@media (min-width: 0) and (max-width: 599px) {
+  .app-container {
+    height: calc(100% - 56px);
+  }
 }

@@ -15,6 +15,7 @@ import {
 } from './api';
 
 import { MaterialModule } from './material.module';
+import { Components } from './components';
 import { ServerConfig } from './config';
 import { Dialogs } from './dialogs';
 import { Directives } from './directives';
@@ -26,6 +27,7 @@ import { Pipes } from './pipes';
     ...ApiDialogs,
     ...ApiDirectives,
     ...ApiPipes,
+    ...Components,
     ...Dialogs,
     ...Directives,
     ...Pipes
@@ -42,6 +44,11 @@ import { Pipes } from './pipes';
   ],
   exports: [
     MaterialModule,
+    ...ApiComponents,
+    ...ApiDialogs,
+    ...ApiDirectives,
+    ...ApiPipes,
+    ...Components,
     ...Dialogs,
     ...Directives,
     ...Pipes
