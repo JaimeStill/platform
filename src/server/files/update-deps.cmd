@@ -14,6 +14,10 @@ cd ..\<%= classify(name) %>.Data
 call dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 call dotnet add package Microsoft.EntityFrameworkCore.Tools
 
+echo Updating <%= classify(name) %>.Office dependencies...
+cd ..\<%= classify(name) %>.Office
+call dotnet add package DocumentFormat.OpenXml
+
 echo Updating <%= classify(name) %>.Web dependencies...
 cd ..\<%= classify(name) %>.Web
 call dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson

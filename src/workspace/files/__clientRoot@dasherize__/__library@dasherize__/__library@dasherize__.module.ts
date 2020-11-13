@@ -7,13 +7,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import {
-  ApiComponents,
-  ApiDialogs,
-  ApiDirectives,
-  ApiPipes
-} from './api';
-
 import { MaterialModule } from './material.module';
 import { Components } from './components';
 import { ServerConfig } from './config';
@@ -23,17 +16,12 @@ import { Pipes } from './pipes';
 
 @NgModule({
   declarations: [
-    ...ApiComponents,
-    ...ApiDialogs,
-    ...ApiDirectives,
-    ...ApiPipes,
     ...Components,
     ...Dialogs,
     ...Directives,
     ...Pipes
   ],
   entryComponents: [
-    ...ApiDialogs,
     ...Dialogs
   ],
   imports: [
@@ -43,11 +31,6 @@ import { Pipes } from './pipes';
     MaterialModule
   ],
   exports: [
-    MaterialModule,
-    ...ApiComponents,
-    ...ApiDialogs,
-    ...ApiDirectives,
-    ...ApiPipes,
     ...Components,
     ...Dialogs,
     ...Directives,

@@ -14,6 +14,7 @@ using Newtonsoft.Json.Serialization;
 using <%= classify(name) %>.Core.Extensions;
 using <%= classify(name) %>.Core.Logging;
 using <%= classify(name) %>.Data;
+using <%= classify(name) %>.Office;
 
 namespace <%= classify(name) %>.Web
 {
@@ -22,15 +23,23 @@ namespace <%= classify(name) %>.Web
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
         public LogProvider Logger { get; }
+        public OfficeConfig OfficeConfig { get; }
 
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
             Environment = environment;
+
             Logger = new LogProvider
             {
                 LogDirectory = Configuration.GetValue<string>("LogDirectory")
                     ?? $@"{Environment.WebRootPath}\logs"
+            };
+
+            OfficeConfig = new OfficeConfig
+            {
+                Directory = Configuration.GetValue<string>("OfficeDirectory")
+                    ?? $@"{Environment.WebRootPath}\office"
             };
         }
 
@@ -50,6 +59,8 @@ namespace <%= classify(name) %>.Web
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                 options.UseSqlServer(Configuration.GetConnectionString("Project"));
             });
+
+            services.AddSingleton(OfficeConfig);
 
             services.AddSignalR();
         }
@@ -73,6 +84,12 @@ namespace <%= classify(name) %>.Web
             {
                 FileProvider = new PhysicalFileProvider(Logger.LogDirectory),
                 RequestPath = "/logs"
+            });
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(OfficeConfig.Directory),
+                RequestPath = "/office"
             });
 
             app.UseExceptionHandler(err => err.HandleError(Logger));
