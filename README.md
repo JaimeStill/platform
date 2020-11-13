@@ -13,11 +13,11 @@
 ### Required App Installations
 [Back to Top](#platform-schematics)
 
-* [Node.JS - Current](https://nodejs.org/dist/v14.13.0/node-v14.13.0-x64.msi)
+* [Node.JS - Current](https://nodejs.org/dist/v15.2.0/node-v15.2.0-x64.msi)
     * No need to install additional tools via Chocolatey.
 * [Git](https://git-scm.com/download/win)
 * [Yarn](https://classic.yarnpkg.com/latest.msi)
-* [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.402-windows-x64-installer)
+* [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.100-windows-x64-installer)
 * [SQL Server 2019 Express](https://go.microsoft.com/fwlink/?linkid=866658)
     * Run the custom setup and install a new instance.
     * When installing features, you can uncheck the box that installs Machine Learning features.
