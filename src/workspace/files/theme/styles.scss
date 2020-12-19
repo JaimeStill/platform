@@ -22,67 +22,72 @@
   $warn-contrast: mat-color($w, default-contrast);
 
   .background.primary {
-    background-color: $primary;
-    color: $primary-contrast;
+    background-color: $primary!important;
+    color: $primary-contrast!important;
   }
 
   .background.accent {
-    background-color: $accent;
-    color: $accent-contrast;
+    background-color: $accent!important;
+    color: $accent-contrast!important;
   }
 
   .background.warn {
-    background-color: $warn;
-    color: $warn-contrast;
+    background-color: $warn!important;
+    color: $warn-contrast!important;
   }
 
+  .background.default,
   .background.card {
-    background-color: $background-card;
+    background-color: $background-card!important;
   }
 
   .background.app-bar {
-    background-color: $app-bar;
+    background-color: $app-bar!important;
   }
 
   .background.stacked {
-    background-color: $background;
+    background-color: $background!important;
   }
 
   .background.inverted {
-    background-color: $foreground;
-    color: $background;
+    background-color: $foreground!important;
+    color: $background!important;
   }
 
   .card-outline {
-    border: 1px solid $foreground;
+    border: 1px solid $foreground!important;
   }
 
   .card-outline-divider {
-    border: 1px solid $divider;
+    border: 1px solid $divider!important;
   }
 
   .card-outline-primary {
-    border: 1px solid $primary;
+    border: 1px solid $primary!important;
   }
 
   .card-outline-accent {
-    border: 1px solid $accent;
+    border: 1px solid $accent!important;
   }
 
   .card-outline-warn {
-    border: 1px solid $warn;
+    border: 1px solid $warn!important;
+  }
+
+  .color.text {
+    color: $foreground!important;
   }
 
   .color.primary {
-    color: $primary;
+    color: $primary!important;
   }
 
   .color.accent {
-    color: $accent;
+    color: $accent!important;
   }
 
   .color.warn {
-    color: $warn;
+    color: $warn!important;
   }
 
   code.primary,
@@ -116,126 +121,50 @@
   }
 }
 
-html, body, app-root, .app-frame {
-  overflow: hidden;
-  margin: 0;
-  height: 100%;
-}
-
-.app-container {
-  overflow: auto;
-  height: calc(100% - 64px);
+* {
   box-sizing: border-box;
 }
 
-.background.card {
-  margin: 4px;
+.pre-wrap {
+  white-space: pre-wrap;
 }
 
-.container {
-  padding: 8px;
-}
-
-mat-toolbar.mat-toolbar.app-toolbar {
-  padding: 0 8px;
-
-  button.mat-icon-button,
-  mat-form-field.mat-form-field {
-    margin: 0 8px 0 0;
-  }
-
-  button.mat-stroked-button {
-    margin: 0 4px;
-  }
-
-  button.mat-stroked-button:first-child {
-    margin-left: 8px;
-  }
-}
-
-nav.mat-tab-nav-bar.wrapped div.mat-tab-links {
-  flex-wrap: wrap;
-}
-
-nav.mat-tab-nav-bar.scrolled {
-  white-space: nowrap;
+.overflow {
   overflow: auto;
-
-  div.mat-tab-links {
-    display: block;
-  }
 }
 
-a.mat-tab-link,
-mat-tab.mat-tab {
-  min-width: 80px;
+.overflow-x {
+  overflow-x: auto;
 }
 
-mat-tab-group.mat-tab-group.flexible div.mat-tab-labels {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-items: space-evenly;
-
-  div.mat-tab-label {
-    flex-grow: 1;
-    flex-basis: auto;
-    min-width: 0;
-  }
+.overflow-y {
+  overflow-y: auto;
 }
 
-nav.mat-tab-nav-bar.flexible div.mat-tab-links {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-items: space-evenly;
-
-  a.mat-tab-link {
-    flex-grow: 1;
-    flex-basis: auto;
-    min-width: 0;
-  }
+.no-resize {
+  resize: none!important;
 }
 
-.el2 {
-  @include mat-elevation(2);
+.resize {
+  resize: both!important;
 }
 
-.el4 {
-  @include mat-elevation(4);
+.resize-horizontal {
+  resize: horizontal!important;
 }
 
-.el6 {
-  @include mat-elevation(6);
+.resize-vertical {
+  resize: vertical!important;
 }
 
-.el8 {
-  @include mat-elevation(8);
+.cursor-pointer {
+  cursor: pointer!important;
 }
 
-.el10 {
-  @include mat-elevation(10);
-}
-
-.el12 {
-  @include mat-elevation(12);
-}
-
-.elevated {
-  @include mat-elevation-transition;
-  @include mat-elevation(2);
-
-  &:hover {
-    @include mat-elevation(6);
-  }
+.cursor-default {
+  cursor: default!important;
 }
 
 .backdropped {
   transition: backdrop-filter 100ms ease-in;
-}
-
-@media (min-width: 0) and (max-width: 599px) {
-  .app-container {
-    height: calc(100% - 56px);
-  }
 }

@@ -17,6 +17,7 @@
     <ProjectReference Include="..\<%= classify(name) %>.Core\<%= classify(name) %>.Core.csproj" />
     <ProjectReference Include="..\<%= classify(name) %>.Data\<%= classify(name) %>.Data.csproj" />
     <ProjectReference Include="..\<%= classify(name) %>.Office\<%= classify(name) %>.Office.csproj" />
+    <ProjectReference Include="..\<%= classify(name) %>.Sql\<%= classify(name) %>.Sql.csproj" />
   </ItemGroup>
 
 

@@ -18,10 +18,10 @@ import {
   RepositoryInitializerTask
 } from '@angular-devkit/schematics/tasks';
 
+import { validateProjectName } from '@schematics/angular/utility/validation';
 import { Schema as ApplicationOptions } from '../app/schema';
 import { Schema as DocsOptions } from '../docs/schema';
 import { Schema as ServerOptions } from '../server/schema';
-import { validateProjectName } from '../utility/validation';
 import { Schema as WorkspaceOptions } from '../workspace/schema';
 import { Schema as PlatformOptions } from './schema';
 

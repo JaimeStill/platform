@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Office", "<%= classify(name) %>.Office\<%= classify(name) %>.Office.csproj", "{694A73C0-353E-445C-927C-9A945A173C50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Sql", "<%= classify(name) %>.Sql\<%= classify(name) %>.Sql.csproj", "{091031A9-B8CE-4282-8A13-9F86209901E1}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= classify(name) %>.Web", "<%= classify(name) %>.Web\<%= classify(name) %>.Web.csproj", "{43F3774B-CF32-42C0-9264-8AC7977DB1EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbseeder", "dbseeder\dbseeder.csproj", "{00799651-6DDD-4C93-BD56-D16CDA49BC02}"

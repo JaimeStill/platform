@@ -2,7 +2,9 @@
          [ngClass]="themer.isLight ? 'app-light' : 'app-dark'">
   <mat-toolbar class="app-toolbar"
                color="primary">
-    <span fxFlex><%= classify(name) %></span>
+    <span class="header-font cursor-pointer"
+          routerLink="home"><%= classify(name) %></span>
+    <span fxFlex></span>
     <button mat-icon-button
             (click)="themer.toggleTheme()">
       <mat-icon [color]="themer.isLight ? 'accent' : 'default'">

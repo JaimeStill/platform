@@ -20,23 +20,19 @@ import {
 } from '@angular-devkit/schematics';
 
 import {
-  NodePackageInstallTask
-} from '@angular-devkit/schematics/tasks';
-
-import {
   getWorkspace,
   updateWorkspace
-} from '../utility/workspace';
+} from '@schematics/angular/utility/workspace';
 
 import {
   Builders,
   ProjectType
-} from '../utility/workspace-models';
+} from '@schematics/angular/utility/workspace-models';
 
-import { addPackageJsonScript } from '../utility/dependencies';
-import { relativePathToWorkspaceRoot } from '../utility/paths';
-import { validateProjectName } from '../utility/validation';
-
+import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
+import { relativePathToWorkspaceRoot } from '@schematics/angular/utility/paths';
+import { validateProjectName } from '@schematics/angular/utility/validation';
+import { addPackageJsonScript } from '../dependencies';
 import { Schema } from './schema';
 
 function updatePackageJson(options: Schema) {
