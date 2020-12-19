@@ -60,6 +60,11 @@ namespace <%= classify(name) %>.Web
                 options.UseSqlServer(Configuration.GetConnectionString("Project"));
             });
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "<%= classify(name) %>", version="v1" });
+            });
+
             services.AddSingleton(OfficeConfig);
 
             services.AddSignalR();
@@ -71,6 +76,8 @@ namespace <%= classify(name) %>.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "<%= classify(name) %> v1"));
 
             app.UseStaticFiles();
 
@@ -101,7 +108,8 @@ namespace <%= classify(name) %>.Web
                 builder.WithOrigins(GetConfigArray("CorsOrigins"))
                     .AllowAnyHeader()
                     .AllowAnyMethod()
-                    .AllowCredentials();
+                    .AllowCredentials()
+                    .WithExposedHeaders("Content-Disposition");
             });
 
             app.UseEndpoints(endpoints =>

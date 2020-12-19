@@ -18,6 +18,11 @@ echo Updating <%= classify(name) %>.Office dependencies...
 cd ..\<%= classify(name) %>.Office
 call dotnet add package DocumentFormat.OpenXml
 
+echo Updating <%= classify(name) %>.Sql dependencies...
+cd ..\<%= classify(name) %>.Sql
+call dotnet add package Microsoft.Data.SqlClient
+call dotnet add package Newtonsoft.Json
+
 echo Updating <%= classify(name) %>.Web dependencies...
 cd ..\<%= classify(name) %>.Web
 call dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
